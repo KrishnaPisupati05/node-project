@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const path = require('path');
 
-// Serve static files from the "public" folder
-app.use(express.static('public'));
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Basic route
-app.get('/', (req, res) => {
-  res.send('<h1>Hello from Azure Static Web App with Node.js!</h1>');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start the server
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
