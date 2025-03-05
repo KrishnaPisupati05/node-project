@@ -7,6 +7,6 @@
     "build": "echo 'No build step required for simple Node.js app'"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.21.2"
   }
 }
